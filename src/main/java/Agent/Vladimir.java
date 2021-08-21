@@ -2,9 +2,10 @@ package Agent;
 
 import Agent.Utility.Utility;
 import Agent.Utility.UtilityType;
+import Gun.Gun;
 import org.bukkit.entity.Player;
 
-public class Vladimir extends Agent {
+public class Vladimir implements Agent {
 
     @Override
     public Player getPlayer() {
@@ -47,8 +48,8 @@ public class Vladimir extends Agent {
     }
 
     @Override
-    public void getWeapon() {
-
+    public Gun getWeapon() {
+        return null;
     }
 }
 

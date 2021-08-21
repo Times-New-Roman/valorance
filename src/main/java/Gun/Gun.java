@@ -1,4 +1,4 @@
 package Gun;
 
-public abstract class Gun {
+public interface Gun {
 }

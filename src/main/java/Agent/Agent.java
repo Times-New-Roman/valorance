@@ -6,24 +6,24 @@ import Gun.Gun;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public abstract class Agent {
+public interface Agent {
 
-    public abstract Player getPlayer();
+    Player getPlayer();
 
-    public abstract String getName();
+    String getName();
 
-    public abstract String[] getLore();
+    String[] getLore();
 
-    public abstract Utility getUtility(UtilityType type);
+    Utility getUtility(UtilityType type);
 
-    public abstract int getHealth();
+    int getHealth();
 
-    public abstract int getMaxHealth();
+    int getMaxHealth();
 
-    public abstract void setHealth();
+    void setHealth();
 
-    public abstract void setMaxHealth();
+    void setMaxHealth();
 
-    public abstract void getWeapon();
+    Gun getWeapon();
+
 }
-
