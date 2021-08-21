@@ -51,3 +51,4 @@ public class Vladimir extends Agent {
 
     }
 }
+
