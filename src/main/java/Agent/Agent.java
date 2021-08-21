@@ -26,4 +26,8 @@ public interface Agent {
 
     Gun getWeapon();
 
+    void setPrimary(Gun g);
+
+    void setSecondary(Gun g);
+
 }

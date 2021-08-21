@@ -51,5 +51,20 @@ public class Vladimir implements Agent {
     public Gun getWeapon() {
         return null;
     }
+
+    @Override
+    public void setSecondary(Gun g) {
+
+    }
+
+    @Override
+    public void setPrimary(Gun g) {
+
+    }
+
+    class ScanArrow implements Utility {
+
+
+    }
 }
 
