@@ -1,14 +1,14 @@
 package Agent.Utility;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface Utility {
 
     String getName();
 
-    String[] getLore();
+    List<String> getLore();
 
-    byte getCharges();
+    int getCharges();
 
     void use();
 
