@@ -2,9 +2,8 @@ package Agent;
 
 import Agent.Utility.Utility;
 import Agent.Utility.UtilityType;
-import Gun.Gun;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import java.util.List;
 
 public interface Agent {
 
@@ -12,7 +11,7 @@ public interface Agent {
 
     String getName();
 
-    String[] getLore();
+    List<String> getLore();
 
     Utility getUtility(UtilityType type);
 
@@ -20,14 +19,8 @@ public interface Agent {
 
     int getMaxHealth();
 
-    void setHealth();
+    void setHealth(int i);
 
-    void setMaxHealth();
-
-    Gun getWeapon();
-
-    void setPrimary(Gun g);
-
-    void setSecondary(Gun g);
+    void setMaxHealth(int i);
 
 }
