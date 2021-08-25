@@ -1,9 +1,4 @@
-import Agent.Agent;
-import Agent.Vladimir;
-
 public class Valorance {
 
-    Agent doo() {
-        return new Vladimir();
-    }
+    //TODO: Code to recognize and init plugin. Might add a P.S.V.M. for testing flow.
 }
