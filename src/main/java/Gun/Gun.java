@@ -4,27 +4,28 @@ import java.util.List;
 
 public interface Gun {
 
-    public int getDamage();
+    int getDamage();
 
-    public int getHeadshotDamage();
+    int getHeadshotDamage();
 
-    public void setDamage();
+    void setDamage();
 
-    public void setHeadshotDamage();
+    void setHeadshotDamage();
 
-    public default boolean canScope() {
+    default boolean canScope() {
         return false;
     }
 
-    public default boolean canAimDownSights() {
+    default boolean canAimDownSights() {
         return true;
     }
 
-    public default String getName() {
+    default String getName() {
         return "Gun";
     }
 
-    public List<String> getLore();
+    List<String> getLore();
+
 
 
 }
