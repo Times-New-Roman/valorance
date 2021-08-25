@@ -206,7 +206,7 @@ public class OldDog implements Agent {
                 "massive Area of Effect damage to",
                 "anyone caught in the blast."
         );
-
+        
         @Override
         public String getName() {
             return name;

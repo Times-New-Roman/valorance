@@ -2,10 +2,13 @@ package Agent;
 
 import Agent.Utility.Utility;
 import Agent.Utility.UtilityType;
-import Gun.Gun;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class Vladimir implements Agent {
+
+    //TODO: needs to be finished! Will do tomorrow afternoon...
 
     @Override
     public Player getPlayer() {
@@ -18,8 +21,8 @@ public class Vladimir implements Agent {
     }
 
     @Override
-    public String[] getLore() {
-        return new String[0];
+    public List<String> getLore() {
+        return null;
     }
 
     @Override
@@ -38,33 +41,12 @@ public class Vladimir implements Agent {
     }
 
     @Override
-    public void setHealth() {
+    public void setHealth(int i) {
 
     }
 
     @Override
-    public void setMaxHealth() {
-
-    }
-
-    @Override
-    public Gun getWeapon() {
-        return null;
-    }
-
-    @Override
-    public void setSecondary(Gun g) {
-
-    }
-
-    @Override
-    public void setPrimary(Gun g) {
-
-    }
-
-    class ScanArrow implements Utility {
-
+    public void setMaxHealth(int i) {
 
     }
 }
-
