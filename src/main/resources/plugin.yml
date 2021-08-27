@@ -1,0 +1,13 @@
+name: VALORANCE-Alpha
+version: a0.0.1
+main: Valorance
+commands:
+  round:
+    description: Manage the current round.
+    aliases:
+      - rd
+  valorance:
+    description: Manage the plugin.
+    aliases:
+      - vc
+      - val
