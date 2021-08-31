@@ -1,0 +1,13 @@
+Utility Model IDs to be used with the resource pack:
+
+OLD DOG (1-4):
+    Stim Beacon - 1
+    Incendiary - 2
+    Orbital Smoke - 3
+    Laser Strike - 4
+
+VLADIMIR (5-8):
+    Scan Arrow - 5
+    Shock Arrow - 6
+    Recon Drone - 7
+    Shock Beam - 8
