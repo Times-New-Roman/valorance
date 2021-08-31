@@ -219,7 +219,7 @@ public class OldDog implements Agent {
 
         @Override
         public int getCharges() {
-            return 1;
+            return 7;
         }
 
         @Override
