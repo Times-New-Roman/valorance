@@ -12,4 +12,5 @@ public interface Utility {
 
     void use();
 
+    int getModelID();
 }
