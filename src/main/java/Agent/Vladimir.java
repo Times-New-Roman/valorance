@@ -4,10 +4,8 @@ import Agent.Utility.Utility;
 import Agent.Utility.UtilityType;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Method;
 import java.util.List;
 import static java.util.Arrays.asList;
-import static java.util.Arrays.compare;
 
 public class Vladimir implements Agent {
 
@@ -16,7 +14,7 @@ public class Vladimir implements Agent {
         this.scanArrow = new ScanArrow(2);
         this.shockArrow = new ShockArrow(2);
         this.reconDrone = new ReconDrone(1);
-        this.shockBeam = new ShockBeam();
+        this.shockBeam = new ShockBeam(7);
     }
 
     private final String name = "Vladimir";
@@ -93,6 +91,7 @@ public class Vladimir implements Agent {
                 "sight, allowing everyone to see",
                 "them through walls.");
         private int charges;
+        private final int modelID = 5;
 
         @Override
         public String getName() {
@@ -113,6 +112,11 @@ public class Vladimir implements Agent {
         public void use() {
             //TODO: code to run on use of scan arrow
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class ShockArrow implements Utility {
@@ -126,6 +130,7 @@ public class Vladimir implements Agent {
                 "damage in an area around where",
                 "it hit.");
         private int charges;
+        private final int modelID = 6;
 
         @Override
         public String getName() {
@@ -146,6 +151,11 @@ public class Vladimir implements Agent {
         public void use() {
             //TODO: code to run on use of shock arrow
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class ReconDrone implements Utility {
@@ -160,6 +170,7 @@ public class Vladimir implements Agent {
                 "it and allowing you to control",
                 "it by looking around.");
         private int charges;
+        private final int modelID = 7;
 
         @Override
         public String getName() {
@@ -180,11 +191,17 @@ public class Vladimir implements Agent {
         public void use() {
             //TODO: code to run on use of recon drone
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class ShockBeam implements Utility {
 
-        private ShockBeam() {
+        private ShockBeam(int i) {
+            this.charges = i;
         }
 
         private final String name = "Shock Beam";
@@ -194,6 +211,8 @@ public class Vladimir implements Agent {
                 "player in its path for 90 damage,",
                 "as well as revealing them for 1",
                 "second.");
+        private int charges;
+        private final int modelID = 8;
 
         @Override
         public String getName() {
@@ -213,6 +232,11 @@ public class Vladimir implements Agent {
         @Override
         public void use() {
             //TODO: code to run on use of shock beam
+        }
+
+        @Override
+        public int getModelID() {
+            return modelID;
         }
     }
 }

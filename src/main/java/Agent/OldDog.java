@@ -88,6 +88,7 @@ public class OldDog implements Agent {
         }
 
         private int charges;
+        private final int modelID = 1;
         private final String name = "Stim Beacon";
         private final List<String> lore = asList(
                 "PLACE to deploy a portable",
@@ -117,6 +118,11 @@ public class OldDog implements Agent {
         public void use() {
             //TODO: code to run on use of stim beacon
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class Incendiary implements Utility {
@@ -126,6 +132,7 @@ public class OldDog implements Agent {
         }
 
         private int charges;
+        private final int modelID = 2;
         private final String name = "Stim Beacon";
         private final List<String> lore = asList(
                 "EQUIP a handheld grenade launcher.",
@@ -154,6 +161,11 @@ public class OldDog implements Agent {
         public void use() {
             //TODO: code to run on use of incendiary
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class OrbitalSmoke implements Utility {
@@ -163,6 +175,7 @@ public class OldDog implements Agent {
         }
 
         private int charges;
+        private final int modelID = 3;
         private final String name = "Orbital Smoke";
         private final List<String> lore = asList(
                 "EQUIP a signal flare. FIRE to throw",
@@ -188,6 +201,11 @@ public class OldDog implements Agent {
         public void use() {
             //TODO: code to run on use of orbital smoke
         }
+
+        @Override
+        public int getModelID() {
+            return modelID;
+        }
     }
 
     class LaserStrike implements Utility {
@@ -197,6 +215,7 @@ public class OldDog implements Agent {
         }
 
         private int charges;
+        private final int modelID = 4;
         private final String name = "Laser Strike";
         private final List<String> lore = asList(
                 "EQUIP a homing beacon. USE to",
@@ -225,6 +244,11 @@ public class OldDog implements Agent {
         @Override
         public void use() {
             //TODO: code to run on use of laser strike
+        }
+
+        @Override
+        public int getModelID() {
+            return modelID;
         }
     }
 }
