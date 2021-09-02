@@ -1,6 +1,6 @@
 name: VALORANCE-Alpha
 version: a0.0.1
-main: Valorance
+main: Valorance.Valorance
 commands:
   round:
     description: Manage the current round.
