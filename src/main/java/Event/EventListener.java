@@ -20,7 +20,7 @@ public class EventListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractEvent(PlayerInteractEvent e) {
-        if (true /* need to add logic. this will call back to the individual methods below instead of having multiple listeners.*/) {
+        if (true /* need to add logic, will call back to the individual methods below instead of having multiple listeners.*/) {
             utilityUse(e);
         }
         else {
