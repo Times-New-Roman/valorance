@@ -1,12 +1,19 @@
 package Event;
 
 import Agent.Utility.UtilityType;
+import Gun.Gun;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import Valorance.Valorance;
+import org.bukkit.util.Vector;
+
+import static Valorance.Valorance.getPlugin;
 
 public class EventListener implements Listener {
 
@@ -29,14 +36,42 @@ public class EventListener implements Listener {
             }
 
 
-            Valorance.getPlugin().getAgentManager().getPlayerAgent(e.getPlayer()).getUtility(type).use();
+            getPlugin().getAgentManager().getPlayerAgent(e.getPlayer()).getUtility(type).use();
         }
     }
 
     @EventHandler
     public void onWeaponFire(PlayerInteractEvent e) {
-        if (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK) || !e.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-            //TODO: Add gunfire stuff here
+        if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+
+            Vector v = e.getPlayer().getLocation().getDirection();
+            double x = v.getX() * 5.00d;
+            double y = v.getY() * 5.00d;
+            double z = v.getZ() * 5.00d;
+
+            v.setX(x);
+            v.setY(y);
+            v.setZ(z);
+            e.getPlayer().launchProjectile(Snowball.class, v);
+        }
+    }
+
+    @EventHandler
+    public void onPlayerHit(ProjectileHitEvent e) {
+        Player hit;
+        if (e.getHitEntity().getType().equals(EntityType.PLAYER)) {
+            hit = (Player) e.getHitEntity();
+        }
+        else return;
+        if (e.getEntity().getType().equals(EntityType.SNOWBALL)) {
+            Player shooter;
+            if (e.getEntity().getShooter() instanceof Player) { shooter = (Player) e.getEntity().getShooter(); }
+            else return;
+            Gun weapon = getPlugin().getWeaponManager().getPrimary(shooter);
+            boolean isHeadshot = false;
+
+            getPlugin().getDamageManager().calculateDamage(weapon, shooter, hit, isHeadshot);
+
         }
     }
 }
