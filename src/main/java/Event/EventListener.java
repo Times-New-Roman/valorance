@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -18,7 +19,15 @@ import static Valorance.Valorance.getPlugin;
 public class EventListener implements Listener {
 
     @EventHandler
-    public void onUtilityUse(PlayerInteractEvent e) {
+    public void onPlayerInteractEvent(PlayerInteractEvent e) {
+        if (true /* need to add logic. this will call back to the individual methods below instead of having multiple listeners.*/) {
+            utilityUse(e);
+        }
+        else {
+            weaponFire(e);
+        }
+    }
+    public void utilityUse(PlayerInteractEvent e) {
         if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) || !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) return;
 
         else if (e.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.EMERALD)) {
@@ -40,8 +49,7 @@ public class EventListener implements Listener {
         }
     }
 
-    @EventHandler
-    public void onWeaponFire(PlayerInteractEvent e) {
+    public void weaponFire(PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
 
             Vector v = e.getPlayer().getLocation().getDirection();
@@ -53,25 +61,6 @@ public class EventListener implements Listener {
             v.setY(y);
             v.setZ(z);
             e.getPlayer().launchProjectile(Snowball.class, v);
-        }
-    }
-
-    @EventHandler
-    public void onPlayerHit(ProjectileHitEvent e) {
-        Player hit;
-        if (e.getHitEntity().getType().equals(EntityType.PLAYER)) {
-            hit = (Player) e.getHitEntity();
-        }
-        else return;
-        if (e.getEntity().getType().equals(EntityType.SNOWBALL)) {
-            Player shooter;
-            if (e.getEntity().getShooter() instanceof Player) { shooter = (Player) e.getEntity().getShooter(); }
-            else return;
-            Gun weapon = getPlugin().getWeaponManager().getPrimary(shooter);
-            boolean isHeadshot = false;
-
-            getPlugin().getDamageManager().calculateDamage(weapon, shooter, hit, isHeadshot);
-
         }
     }
 }
